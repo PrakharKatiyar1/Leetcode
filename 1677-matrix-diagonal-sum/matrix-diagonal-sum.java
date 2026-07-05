@@ -6,17 +6,13 @@ class Solution {
                 if(i == j){
                     sum += mat[i][j];
                 }
+                if(i + j == mat.length - 1){
+                    sum += mat[i][j];
+                } 
             }
         }
-        for(int i = 0; i < mat.length; i++){
-            for(int j = mat.length - 1; j >= 0; j--){
-                if(i == j) continue;
-                else if(i + j == mat.length - 1){
-                    sum += mat[i][j];
-                }
-                
-
-            }
+        if(mat.length % 2 == 1){
+            sum -= mat[mat.length / 2][mat.length / 2];
         }
         return sum;
         
