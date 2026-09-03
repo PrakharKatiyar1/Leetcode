@@ -1,0 +1,16 @@
+class Solution {
+    public boolean uniformArray(int[] nums1) {
+        int min = Integer.MAX_VALUE;
+        int even = 0, odd = 0;
+        for(int i = 0; i < nums1.length; i++){
+            if(nums1[i] % 2 != 0)min = Math.min(min, nums1[i]);
+            if(nums1[i] % 2 == 0) even++;
+            else odd++;
+        }
+        if(even == 0 || odd == 0) return true;
+        for(int i = 0; i < nums1.length; i++){
+            if(nums1[i] % 2 == 0 && nums1[i] < min) return false;
+        }
+        return true;
+    }
+}
